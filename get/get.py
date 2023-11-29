@@ -27,7 +27,7 @@ def get(tel: str, pw: str, cname: str, work_name: str) -> None:
             fp.write(json.dumps(text))
         messagebox.showinfo('提示', '已完成获取')
     except Exception as e:
-        messagebox.showerror('错误', '获取答案时出现错误')
+        messagebox.showerror('错误', f'获取答案时出现错误{e}')
     finally:
         if 'page' in locals():
             page.quit()
