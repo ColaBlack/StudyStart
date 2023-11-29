@@ -18,10 +18,6 @@ def fill(phone_number: str, password: str, course_name: str, work_name: str) -> 
     """
     try:
         print('开始填写答案')
-        page = login(phone_number, password)
-        into_course(page, course_name, work_name)
-        # 再次进入课程
-        print('进入课程成功，准备填写答案')
         file_path = os.path.join('.', 'answer.json')
         with open(file_path, 'r') as fp:
             text = json.loads(fp.read())
@@ -29,6 +25,10 @@ def fill(phone_number: str, password: str, course_name: str, work_name: str) -> 
             blank_ans = text['答案']['填空题']
             tf_ans = text['答案']['判断题']
         if text['课程'] == course_name and text['作业'] == work_name:
+            page = login(phone_number, password)
+            into_course(page, course_name, work_name)
+            # 再次进入课程
+            print('进入课程成功，准备填写答案')
             # 填写选择题答案
             excur = fill_multiple_ans(page, single_ans)
             # 填写填空题答案
@@ -41,4 +41,4 @@ def fill(phone_number: str, password: str, course_name: str, work_name: str) -> 
     except Exception as e:
         # 记录错误日志
         print(f"填写答案时出现错误：{e}")
-        messagebox.showerror('错误', '填写答案时出现错误')
+        messagebox.showerror('错误', f'填写答案时出现错误:{e}')
