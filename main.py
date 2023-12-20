@@ -36,6 +36,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
     print("程序已启动")
+    main()
 # pyinstaller --onefile --noconsole main.py
