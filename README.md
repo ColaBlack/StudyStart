@@ -5,6 +5,8 @@
 
 基于tkinter制作gui界面
 
+基于DrissionPage可以爬取学习通已经提交的作业的答案
+
 项目中answer.json存储了爬取的答案，可以用于交换答案
 
 
