@@ -27,7 +27,7 @@ def main():
                            command=lambda: get(phone_number.get(), password.get(), course_name.get(), work_name.get()))
     button_get.grid(row=5, column=1, pady=10)
 
-    button_copy = tk.Button(root, text='复制答案',
+    button_copy = tk.Button(root, text='填写答案',
                             command=lambda: fill(phone_number.get(), password.get(), course_name.get(),
                                                  work_name.get()))
     button_copy.grid(row=5, column=2)
